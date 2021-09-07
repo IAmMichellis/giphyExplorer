@@ -18,6 +18,8 @@
 		5ECACFB726E6FF1600DA3315 /* GiphyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECACFB626E6FF1600DA3315 /* GiphyGif.swift */; };
 		5ECACFB926E7026900DA3315 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECACFB826E7026900DA3315 /* HomeViewController.swift */; };
 		5ECACFBB26E70CDA00DA3315 /* UIImage+gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECACFBA26E70CDA00DA3315 /* UIImage+gif.swift */; };
+		5ECACFBD26E7AB7C00DA3315 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECACFBC26E7AB7C00DA3315 /* HistoryViewController.swift */; };
+		5ECACFC326E7AC6500DA3315 /* HistoricalGifCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECACFC126E7AC6500DA3315 /* HistoricalGifCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		5ECACFB626E6FF1600DA3315 /* GiphyGif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyGif.swift; sourceTree = "<group>"; };
 		5ECACFB826E7026900DA3315 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5ECACFBA26E70CDA00DA3315 /* UIImage+gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+gif.swift"; sourceTree = "<group>"; };
+		5ECACFBC26E7AB7C00DA3315 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		5ECACFC126E7AC6500DA3315 /* HistoricalGifCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalGifCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,7 @@
 				5ECACFB526E6FEF700DA3315 /* Models */,
 				5E9B4CD826E306AE00C10E51 /* Extensions */,
 				5EB218BA26E2CFCE00FB7239 /* ViewControllers */,
+				5ECACFC026E7AC2F00DA3315 /* Views */,
 				5EB218A326E2C86600FB7239 /* AppDelegate.swift */,
 				5EB218A526E2C86600FB7239 /* SceneDelegate.swift */,
 				5EB218A926E2C86600FB7239 /* Main.storyboard */,
@@ -94,6 +99,7 @@
 			children = (
 				5EB218BB26E2CFF600FB7239 /* RandomViewController.swift */,
 				5ECACFB826E7026900DA3315 /* HomeViewController.swift */,
+				5ECACFBC26E7AB7C00DA3315 /* HistoryViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -104,6 +110,14 @@
 				5ECACFB626E6FF1600DA3315 /* GiphyGif.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		5ECACFC026E7AC2F00DA3315 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5ECACFC126E7AC6500DA3315 /* HistoricalGifCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,6 +196,8 @@
 				5ECACFB726E6FF1600DA3315 /* GiphyGif.swift in Sources */,
 				5E9B4CDA26E306D100C10E51 /* UIImageView+loadUrl.swift in Sources */,
 				5ECACFB926E7026900DA3315 /* HomeViewController.swift in Sources */,
+				5ECACFC326E7AC6500DA3315 /* HistoricalGifCell.swift in Sources */,
+				5ECACFBD26E7AB7C00DA3315 /* HistoryViewController.swift in Sources */,
 				5ECACFBB26E70CDA00DA3315 /* UIImage+gif.swift in Sources */,
 				5EB218A626E2C86600FB7239 /* SceneDelegate.swift in Sources */,
 			);
