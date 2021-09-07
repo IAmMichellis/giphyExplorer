@@ -11,10 +11,13 @@ import CoreData
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+//        let components = Bundle.main.bundlePath.components(separatedBy: "/")
+        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+//        let components = [[[NSBundle mainBundle] bundlePath] componentsSeparatedByString:@"/"];
+//        NSLog(@"AppID: %@", [components objectAtIndex:[components count] - 2]);
         return true
     }
 

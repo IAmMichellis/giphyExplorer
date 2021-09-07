@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class HistoryViewController: UIViewController {
     
@@ -18,34 +19,24 @@ class HistoryViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         // Do any additional setup after loading the view.
-        loadRandomImage()
+        loadImages()
     }
     
-    // TODO remove, should be getting from core data
-    func loadRandomImage() {
-        if let url = URL(string: "https://api.giphy.com/v1/gifs/random?api_key=RrRpy6fMj20Uz03LWCdQppQsUSMjJUV0&tag=&rating=g") {
-            let urlSession = URLSession.shared.dataTask(with: url) { data, response, error in
-                if let error = error {
-                    print("error getting random from giphy: \(error.localizedDescription)")
-                }
+    func loadImages() {
+        DispatchQueue.main.async {
+            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            let request : NSFetchRequest<GiphyGif> = GiphyGif.fetchRequest()
+            request.sortDescriptors = [NSSortDescriptor(key:"createdAt", ascending:false)]
+            do {
                 
-                do {
-                    if let data = data {
-                        print(data)
-                        let giphyData = try JSONDecoder().decode(GiphyGif.self, from: data)
-                        self.historicalGifs = [giphyData]
-                        self.tableView.reloadData()
-                    }
-                } catch {
-                    print("fail?? \(error.localizedDescription)")
-                }
-           
+                self.historicalGifs = try context.fetch(request)
+                self.tableView.reloadData()
+            } catch {
+                print("fetch error")
+                print(error)
             }
-            
-            urlSession.resume()
         }
     }
-    
 }
 
 // MARK: - UITableViewDataSource

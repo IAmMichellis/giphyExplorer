@@ -11,20 +11,9 @@ class HistoricalGifCell: UITableViewCell {
 
     @IBOutlet weak var gifImageView: UIImageView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     func showGif(gif: GiphyGif) {
         // TODO what's the implications of the load time? going to have wrong images. TODO.
-        let animatedGif = UIImage.gifImageWithURL(gif.largeUrl)
+        let animatedGif = UIImage.gifImageWithURL(gif.largeUrl!) // TODO dangerous, not production ready
         gifImageView.image = animatedGif
     }
 }
