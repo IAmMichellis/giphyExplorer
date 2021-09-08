@@ -10,7 +10,6 @@ import CoreData
 
 class RandomViewController: UIViewController {
     
-    
     @IBAction func againButtonPressed(_ sender: UIButton) {
         loadRandomImage()
     }
@@ -25,39 +24,21 @@ class RandomViewController: UIViewController {
     }
     
     func loadRandomImage() {
-        if let url = URL(string: "https://api.giphy.com/v1/gifs/random?api_key=RrRpy6fMj20Uz03LWCdQppQsUSMjJUV0&tag=&rating=g") {
-            let urlSession = URLSession.shared.dataTask(with: url) { data, response, error in
-                
-                if let error = error {
-                    print("error getting random from giphy: \(error.localizedDescription)")
-                }
-                
-                
-                if let data = data {
-                    DispatchQueue.main.async {
-                        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-                        do {
-                            let giphyData = try JSONDecoder(context: context).decode(GiphyGif.self, from: data)
-                            let imageFromUrl = UIImage.gifImageWithURL(giphyData.largeUrl!)
-                            self.randomImageView.image = imageFromUrl
-                            
-                            print("is dirty befoore \(context.hasChanges)")
-                            try context.save()
-                            print("is dirty after \(context.hasChanges)")
-                            
-                            
-                        }  catch {
-                            print("CONTEXT DIDN'T SAVE")
-                            print(error)
-                        }
-                        
-                    }
-                }
+        Network.shared.fetchRandomGiphy() { gif, error  in
+            if let error = error {
+                print("NETWORK ERROR: \(error)")
+                return
             }
-            urlSession.resume()
             
+            guard let gif = gif else {
+                print("NO GIF OR ERROR!")
+                return
+            }
+            
+            let imageFromUrl = UIImage.gifImageWithURL(gif.largeUrl!)
+            DispatchQueue.main.async {
+                self.randomImageView.image = imageFromUrl
+            }
         }
-        
     }
 }
-
