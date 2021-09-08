@@ -19,7 +19,6 @@ class HistoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
-        // Do any additional setup after loading the view.
         loadImages()
     }
     

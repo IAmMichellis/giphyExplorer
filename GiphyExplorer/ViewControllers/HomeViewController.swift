@@ -8,22 +8,41 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+    struct LocalK {
+        static let showRandomSegue = "showRandomSegue"
+        static let showHistorySegue = "showHistorySegue"
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBOutlet weak var randomButton: UIButton!
+    @IBOutlet weak var historyButton: UIButton!
+    
+    var selectedNavigationButton: UIButton?
+    var collapseDetailViewController: Bool = true
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
-    */
 
+    
+    fileprivate func doDetailNavigation() {
+        showSelectedNavigation()
+        
+        self.collapseDetailViewController = false
+        if selectedNavigationButton === randomButton {
+            self.performSegue(withIdentifier: LocalK.showRandomSegue, sender: self)
+        } else if selectedNavigationButton === historyButton {
+            self.performSegue(withIdentifier: LocalK.showHistorySegue, sender: self)
+        }
+    }
+    
+    func showSelectedNavigation() {
+        randomButton.isSelected = selectedNavigationButton === randomButton
+        historyButton.isSelected = selectedNavigationButton === historyButton
+    }
+    
+    @IBAction func navigationButtonSelected(_ sender: UIButton) {
+        selectedNavigationButton = sender
+        doDetailNavigation()
+    }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cjh-5x-2XJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ypV-Zl-otU">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -8,6 +8,35 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="mmf-ij-TqM">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DOX-IU-kHC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController id="kW1-s3-DUh" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZE1-lU-3ZM">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="arC-ej-p3S"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-475" y="91"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="afU-oZ-Gz0">
+            <objects>
+                <splitViewController allowDoubleColumnStyle="YES" id="ypV-Zl-otU" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="kW1-s3-DUh" kind="relationship" relationship="masterViewController" id="gyU-Rq-BbQ"/>
+                        <segue destination="XHI-F1-dW6" kind="relationship" relationship="detailViewController" id="M8H-wR-vMe"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IiE-vH-Oc2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1370" y="394"/>
+        </scene>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -24,7 +53,7 @@
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <state key="normal" title="Random!"/>
                                         <connections>
-                                            <segue destination="XHI-F1-dW6" kind="show" id="5Py-lb-eVA"/>
+                                            <action selector="navigationButtonSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T8K-h4-ieh"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bU2-C3-QFF">
@@ -32,7 +61,7 @@
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <state key="normal" title="Nostalgia!"/>
                                         <connections>
-                                            <segue destination="rT4-5A-4hJ" kind="show" id="jJ2-Vy-0BD"/>
+                                            <action selector="navigationButtonSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jvg-0u-EmQ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -46,10 +75,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UQh-zj-80V"/>
+                    <connections>
+                        <outlet property="historyButton" destination="bU2-C3-QFF" id="uFw-gh-OOe"/>
+                        <outlet property="randomButton" destination="tG6-We-BLi" id="bIa-td-bqp"/>
+                        <segue destination="XHI-F1-dW6" kind="showDetail" identifier="showRandomSegue" id="E4l-DT-yE7"/>
+                        <segue destination="rT4-5A-4hJ" kind="showDetail" identifier="showHistorySegue" id="y98-t4-tiX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="986.95652173913049" y="88.392857142857139"/>
+            <point key="canvasLocation" x="314" y="90"/>
         </scene>
         <!--Random View Controller-->
         <scene sceneID="ItP-Ex-0t5">
@@ -103,7 +138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fAT-fT-MNn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1955.072463768116" y="27.455357142857142"/>
+            <point key="canvasLocation" x="-475" y="863"/>
         </scene>
         <!--History View Controller-->
         <scene sceneID="64d-Lk-QRg">
@@ -161,27 +196,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4TK-ON-wVh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1955" y="702"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="oko-6O-Mex">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cjh-5x-2XJ" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eox-9t-78T">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="QIL-Ip-gDm"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9kN-5a-PlJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="76.811594202898561" y="88.392857142857139"/>
+            <point key="canvasLocation" x="455" y="863"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="M8H-wR-vMe"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
