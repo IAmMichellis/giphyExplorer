@@ -12,6 +12,7 @@ class HistoryViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     static let cellReuseIdentifier = "historicalGifCell"
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var historicalGifs: [GiphyGif] = []
     
@@ -23,13 +24,12 @@ class HistoryViewController: UIViewController {
     }
     
     func loadImages() {
+        let request : NSFetchRequest<GiphyGif> = GiphyGif.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key:"createdAt", ascending:false)]
+        request.fetchLimit = 20
         DispatchQueue.main.async {
-            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-            let request : NSFetchRequest<GiphyGif> = GiphyGif.fetchRequest()
-            request.sortDescriptors = [NSSortDescriptor(key:"createdAt", ascending:false)]
             do {
-                
-                self.historicalGifs = try context.fetch(request)
+                self.historicalGifs = try self.context.fetch(request)
                 self.tableView.reloadData()
             } catch {
                 print("fetch error")

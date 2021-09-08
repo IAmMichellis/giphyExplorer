@@ -9,18 +9,6 @@
 import Foundation
 import CoreData
 
-//TODO bad spot
-extension CodingUserInfoKey {
-    static let context = CodingUserInfoKey(rawValue: "context")!
-}
-
-extension JSONDecoder {
-    convenience init(context: NSManagedObjectContext) {
-        self.init()
-        self.userInfo[.context] = context
-    }
-}
-
 @objc(GiphyGif)
 public class GiphyGif: NSManagedObject, Decodable {
     

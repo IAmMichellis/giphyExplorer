@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5E8A25AE26E84AB1007A5BB6 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8A25AD26E84AB1007A5BB6 /* Network.swift */; };
+		5E8A25B226E85B65007A5BB6 /* JSONDecoder+context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8A25B126E85B65007A5BB6 /* JSONDecoder+context.swift */; };
 		5E90ADD726E7F68900CDD5AD /* GiphyGif+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E90ADD526E7F68900CDD5AD /* GiphyGif+CoreDataProperties.swift */; };
 		5E9B4CDA26E306D100C10E51 /* UIImageView+loadUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9B4CD926E306D100C10E51 /* UIImageView+loadUrl.swift */; };
 		5EB218A426E2C86600FB7239 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB218A326E2C86600FB7239 /* AppDelegate.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		5E8A25AD26E84AB1007A5BB6 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		5E8A25B126E85B65007A5BB6 /* JSONDecoder+context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+context.swift"; sourceTree = "<group>"; };
 		5E90ADD526E7F68900CDD5AD /* GiphyGif+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "GiphyGif+CoreDataProperties.swift"; path = "../../GiphyGif+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5E9B4CD926E306D100C10E51 /* UIImageView+loadUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+loadUrl.swift"; sourceTree = "<group>"; };
 		5EB218A026E2C86600FB7239 /* GiphyExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiphyExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +62,7 @@
 			children = (
 				5E9B4CD926E306D100C10E51 /* UIImageView+loadUrl.swift */,
 				5ECACFBA26E70CDA00DA3315 /* UIImage+gif.swift */,
+				5E8A25B126E85B65007A5BB6 /* JSONDecoder+context.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				5EB218BC26E2CFF600FB7239 /* RandomViewController.swift in Sources */,
 				5EB218AE26E2C86600FB7239 /* GiphyExplorer.xcdatamodeld in Sources */,
 				5E8A25AE26E84AB1007A5BB6 /* Network.swift in Sources */,
+				5E8A25B226E85B65007A5BB6 /* JSONDecoder+context.swift in Sources */,
 				5E90ADD726E7F68900CDD5AD /* GiphyGif+CoreDataProperties.swift in Sources */,
 				5EB218A426E2C86600FB7239 /* AppDelegate.swift in Sources */,
 				5ECACFCA26E7B53300DA3315 /* GiphyGif+CoreDataClass.swift in Sources */,
